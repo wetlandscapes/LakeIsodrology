@@ -3,7 +3,7 @@
 #' \code{HH16O_diff} implements a temperature-dependent estimate of diffusion
 #' for water - in particular HH16O.
 #'
-#' Diffusion of HH16O is determined as (Holz et al. 2000):
+#' Diffusion of HH16O as determined by Holz et al. (2000):
 #'
 #' \deqn{ln(10^{9}D) = a_{1} + a_{2}(1000/Temp) + a_{3}(1000/Temp)^{2}}
 #'
@@ -31,7 +31,7 @@
 #' @examples
 #' Temps <- 288:308
 #' HH16O.diffusion <- HH16O_diff(Temps)
-#' qplot(Temps, HH16O.diffusion, geom = "point")
+#' ggplot2::qplot(Temps, HH16O.diffusion, geom = "point")
 
 HH16O_diff <- function(Temp,
                        Do = 1.635e-08,
