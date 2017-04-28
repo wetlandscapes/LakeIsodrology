@@ -32,7 +32,7 @@
 #'
 CraigGordon <- function(alpha_VL, Del_L, hn, Del_A, frac_VL, frac_diff){
   eq.top <- (alpha_VL * Del_L) - (hn * Del_A) - (frac_VL + frac_diff)
-  eq.top <- (1 - hn) + frac_diff
+  eq.bottom <- (1 - hn) + frac_diff
   out <- eq.top / eq.bottom
   out
 }
