@@ -1,0 +1,16 @@
+Package: LakeIsodrology
+Type: Package
+Title: Lake isotope hydrology
+Version: 0.0.0.9000
+Authors@R: person("Jason", "Mercer", email = "jmercer4@uwyo.edu",
+  role = c("aut", "cre"))
+Maintainer: The package maintainer <jmercer4@uwyo.edu>
+Description: This package consolidates and operationalizes a number of
+    relationships used in isotope chemistry and hydrology, with a particular
+    emphasis on the processes influencing the isotopic signature of lakes.
+Depends: R(>= 3.3.3)
+Suggests: ggplot2
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
