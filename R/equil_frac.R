@@ -3,6 +3,14 @@
 #'Estimates the temperature-dependent equilibrium fracitonation of common water
 #'isotopes.
 #'
+#'Fractionation s determined via (Majoube 1971):
+#'
+#'Hydrogen: \eqn{10^{3}ln\alpha = 24.844(10^{6}/T_{K}^{2}) -
+#'76.248(10^{3}/T_{K}^{2}) + 52.612}
+#'
+#'Oxygen: \eqn{10^{3}ln\alpha = 1.137(10^{6}/T_{K}^{2}) -
+#'0.4156(10^{3}/T_{K}^{2}) - 2.0667}
+#'
 #'Majoube M. 1971. Oxygen-18 and deuterium fractionation between water and steam
 #'(in French). Journal de Chimie Physique et de Physico-Chimie Biologique 68:
 #'1423–1436
@@ -26,7 +34,7 @@ equil_frac <- function(temperature, element){
     second <- -0.4156 * (1e+03)/(temperature)
     frac_factor <-  first +  second + -2.0667
   } else {
-    stop(paste("Something went wrong with the selection of isotope."))
+    stop(paste("Something went wrong with the isotope selection."))
   }
   frac_factor <- frac_factor/1000
   frac_factor <- exp(frac_factor)

@@ -24,7 +24,7 @@ Returns a temperature-dependent estimate of molecular diffsuion for
 for water - in particular HH16O.
 }
 \details{
-Diffusion of HH16O is determined as (Holz et al. 2000):
+Diffusion of HH16O as determined by Holz et al. (2000):
 
 \deqn{ln(10^{9}D) = a_{1} + a_{2}(1000/Temp) + a_{3}(1000/Temp)^{2}}
 
@@ -43,5 +43,5 @@ accurate 1H NMR PFG measurements. Physical Chemistry Chemical Physics 2 (20):
 \examples{
 Temps <- 288:308
 HH16O.diffusion <- HH16O_diff(Temps)
-qplot(Temps, HH16O.diffusion, geom = "point")
+ggplot2::qplot(Temps, HH16O.diffusion, geom = "point")
 }

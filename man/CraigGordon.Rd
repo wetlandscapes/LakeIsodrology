@@ -39,7 +39,7 @@ The Craig-Gordon model as defined by Gat et al. (2001):
 
 Gat, J. R., Mook, W. G., & Meijer AJ. 2001. Environmental isotopes in the
 hydrological cycle, principles and applications. Volume II: Atmospheric
-water. IHP-V, Technical Document 2 (39): 1–113 Available at:
+water. IHP-V, Technical Document 2 (39): 1–113. Available at:
 http://www.hydrology.nl/images/docs/ihp/Mook_II.pdf
 }
 \examples{
