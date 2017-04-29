@@ -7,18 +7,20 @@
 sat_vap(temperature)
 }
 \arguments{
-\item{temperature}{Air temperature (C). \eqn{T}}
-}
-\value{
-The result is in kPa.
+\item{temperature}{Air temperature \eqn{T} (\eqn{C})}
 }
 \description{
-\code{sat_vap} determines the saturation vapor pressure for a given temperature.
+\code{sat_vap} determines the saturation vapor pressure, \eqn{e_{s}} (\eqn{kPa}), for a
+given atmospheric temperature.
 }
 \details{
-Saturation vapor pressure is determine by (Allen et al. Allen et al. 1998):
+Saturation vapor pressure is determine by (Allen et al. 1998):
 
 \deqn{e_{s} = \frac{0.611 exp(T 17.3)}{T + 237.3}}
+
+Allen, RG, LS Pereira, D Raes, M Smith. 1998. Crop evapotranspiration -
+Guidelines for computing crop water requirements - FAO Irrigation and
+drainage paper 56. FAO, Rome, 300(9), D05109.
 }
 \examples{
 

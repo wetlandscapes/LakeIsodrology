@@ -8,28 +8,26 @@ CraigGordon(alpha_VL, Del_L, hn, Del_A, frac_VL, frac_diff)
 }
 \arguments{
 \item{alpha_VL}{Equilibrium fractionation factor between vapor and liquid
-phases [-]. \eqn{\alpha_{V/L}}}
+phases, \eqn{\alpha_{V/L}} [\eqn{-}].}
 
-\item{Del_L}{Delta value for lake water (‰). \eqn{\delta_{L}}}
+\item{Del_L}{Delta value for lake water, \eqn{\delta_{L}} (\eqn{‰}).}
 
 \item{hn}{Relative humidity normalized to saturation vapor pressure at the
-lake-atmosphere interface [-]. \eqn{h_{N}}}
+lake-atmosphere interface, \eqn{h_{N}} [\eqn{-}].}
 
-\item{Del_A}{Delta value for the "free" atmosphere (‰). \eqn{\delta_{A}}}
+\item{Del_A}{Delta value for the "free" atmosphere \eqn{\delta_{A}},
+(\eqn{‰}).}
 
-\item{frac_VL}{Vapor-liquid equilibrium fractionation factor (‰).
-\eqn{\epsilon_{V/L}}}
+\item{frac_VL}{Vapor-liquid equilibrium fractionation factor,
+\eqn{\epsilon_{V/L}} (\eqn{‰}).}
 
-\item{frac_diff}{Kinetic equilibrium fractionation factor (‰).
-\eqn{\epsilon_{diff}}}
-}
-\value{
-Returns delta evaporation value for a particular water species (H or
-  O) in permille.
+\item{frac_diff}{Kinetic equilibrium fractionation factor,
+\eqn{\epsilon_{diff}}, (\eqn{‰}).}
 }
 \description{
 Implements the Craig-Gordon isotope evaporation model for an individual
-element of water (H or O).
+isotope of water (H or O). Units of the output delta value, \eqn{\delta_{E}},
+are providede in \eqn{‰}.
 }
 \details{
 The Craig-Gordon model as defined by Gat et al. (2001):
@@ -37,10 +35,9 @@ The Craig-Gordon model as defined by Gat et al. (2001):
 \deqn{\delta_{E} = \frac{\alpha_{V/L}\delta_{L} - h_{N}\delta_{A} +
 \epsilon_{V/L} + \epsilon_{diff}}{(1 - h_{N}) - \epsilon_{diff}}}
 
-Gat, J. R., Mook, W. G., & Meijer AJ. 2001. Environmental isotopes in the
-hydrological cycle, principles and applications. Volume II: Atmospheric
-water. IHP-V, Technical Document 2 (39): 1–113. Available at:
-http://www.hydrology.nl/images/docs/ihp/Mook_II.pdf
+Gat, JR, WG Mook, AJ Meijer. 2001. Environmental isotopes in the hydrological
+cycle, principles and applications. Volume II: Atmospheric water. IHP-V,
+Technical Document 2 (39): 1–113.
 }
 \examples{
 

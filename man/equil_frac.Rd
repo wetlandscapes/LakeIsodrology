@@ -7,30 +7,28 @@
 equil_frac(temperature, element)
 }
 \arguments{
-\item{temperature}{Numeric value of absolute temperature (Kelvin)}
+\item{temperature}{Numeric air temperature value, \eqn{T} (\eqn{C}).}
 
-\item{element}{Character indicating "Hydrogen" or "Oxygen"}
-}
-\value{
-Returns the fractionation factor (aka, isotope effect) between liquid
- and vapor, under equilibrium conditions [-].
+\item{element}{Character indicating "Hydrogen" or "Oxygen".}
 }
 \description{
-Estimates the temperature-dependent equilibrium fracitonation of common water
-isotopes.
+Estimates the temperature-dependent equilibrium fracitonation factor (aka,
+isotope effect), \eqn{\alpha_{V/L}}, of common water isotopes (i.e.,
+2-hydrogen and 18-oxygen) between the liquid and vapor phases. Units of the
+output \eqn{\alpha} value are in decimal notation [-].
 }
 \details{
 Fractionation s determined via (Majoube 1971):
 
-Hydrogen: \eqn{10^{3}ln\alpha = 24.844(10^{6}/T_{K}^{2}) -
-76.248(10^{3}/T_{K}^{2}) + 52.612}
+Hydrogen: \eqn{10^{3} ln\alpha_{V/L} = 24.844(10^{6}/(T + 273.15)^{2}) -
+76.248(10^{3}/(T + 273.15)^{2}) + 52.612}
 
-Oxygen: \eqn{10^{3}ln\alpha = 1.137(10^{6}/T_{K}^{2}) -
-0.4156(10^{3}/T_{K}^{2}) - 2.0667}
+Oxygen: \eqn{10^{3} ln\alpha_{V/L} = 1.137(10^{6}/(T + 273.15)^{2}) -
+0.4156(10^{3}/(T + 273.15)) - 2.0667}
 
-Majoube M. 1971. Oxygen-18 and deuterium fractionation between water and steam
-(in French). Journal de Chimie Physique et de Physico-Chimie Biologique 68:
-1423–1436
+Majoube M. 1971. Oxygen-18 and deuterium fractionation between water and
+steam (in French). Journal de Chimie Physique et de Physico-Chimie Biologique
+68: 1423–1436.
 }
 \examples{
 

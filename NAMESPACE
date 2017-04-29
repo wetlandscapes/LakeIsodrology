@@ -2,6 +2,11 @@
 
 export(CraigGordon)
 export(HH16O_diff)
+export(atm_vap)
+export(equil_enrich)
 export(equil_frac)
+export(kin_enrich)
+export(norm_humidity)
 export(sat_vap)
+export(sat_vap_surf)
 export(slp_sat_vap)
