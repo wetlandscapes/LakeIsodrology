@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#'Liquid-vapor equilibrium fractionation\n#'\n#'Estimates the temperature-dependent equilibrium fracitonation of common water\n#'isotopes.\n#'\n#'Fractionation s determined via (Majoube 1971):\n#'\n#'Hydrogen: \\eqn{10^{3}ln\\alpha = 24.844(10^{6}/T_{K}^{2}) -\n#'76.248(10^{3}/T_{K}^{2}) + 52.612}\n#'\n#'Oxygen: \\eqn{10^{3}ln\\alpha = 1.137(10^{6}/T_{K}^{2}) -\n#'0.4156(10^{3}/T_{K}^{2}) - 2.0667}\n#'\n#'Majoube M. 1971. Oxygen-18 and deuterium fractionation between water and steam\n#'(in French). Journal de Chimie Physique et de Physico-Chimie Biologique 68:\n#'1423–1436\n#'\n#'@param temperature Numeric value of absolute temperature (Kelvin)\n#'@param element Character indicating \"Hydrogen\" or \"Oxygen\"\n#'\n#'@return Returns the fractionation factor (aka, isotope effect) between liquid\n#'  and vapor, under equilibrium conditions [-].\n#'@export\n#'\n#' @examples\n#'\nequil_frac <- function(temperature, element){\n  if(element == \"Hydrogen\"){\n    first <- 24.844 * ((1e+06) / ((temperature^2)))\n    second <- -76.248 * (1e+03)/(temperature)\n    frac_factor <-  first +  second + 52.612\n  } else if (element == \"Oxygen\"){\n    first <- 1.137 * ((1e+06) / ((temperature^2)))\n    second <- -0.4156 * (1e+03)/(temperature)\n    frac_factor <-  first +  second + -2.0667\n  } else {\n    stop(paste(\"Something went wrong with the isotope selection.\"))\n  }\n  frac_factor <- frac_factor/1000\n  frac_factor <- exp(frac_factor)\n  frac_factor\n}\n",
+    "created" : 1493385659074.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1120446416",
+    "id" : "36015075",
+    "lastKnownWriteTime" : 1493394024,
+    "last_content_update" : 1493394024243,
+    "path" : "C:/RWorkspace/LakeIsodrology/R/equil_frac.R",
+    "project_path" : "R/equil_frac.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
