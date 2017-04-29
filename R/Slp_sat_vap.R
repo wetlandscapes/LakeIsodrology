@@ -19,7 +19,7 @@
 #'
 #' @examples
 #'
-Slp_sat_vap <- function(temperature, es){
+slp_sat_vap <- function(temperature, es){
   eq.top <- 4098 * es
   eq.bottom <- (temperature + 237.3) ^ 2
   Delta <- eq.top / eq.bottom

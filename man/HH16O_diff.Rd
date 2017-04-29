@@ -4,14 +4,14 @@
 \alias{HH16O_diff}
 \title{Diffusion of HH16O}
 \usage{
-HH16O_diff(Temp, Do = 1.635e-08, Temp.s = 215.05, gamma = 2.063)
+HH16O_diff(temperature, Do = 1.635e-08, temp.s = 215.05, gamma = 2.063)
 }
 \arguments{
-\item{Temp}{Vector of air temperatures (Kelvin)}
+\item{temperature}{Vector of air temperatures (C). \eqn{T}}
 
 \item{Do}{Diffussion coefficient (1e-9 m^2 s^-1)}
 
-\item{Temp.s}{Standardized temperature (Kelvin)}
+\item{temp.s}{Standardized temperature (Kelvin)}
 
 \item{gamma}{Fitted exponent [-]}
 }
@@ -26,7 +26,7 @@ for water - in particular HH16O.
 \details{
 Diffusion of HH16O as determined by Holz et al. (2000):
 
-\deqn{ln(10^{9}D) = a_{1} + a_{2}(1000/Temp) + a_{3}(1000/Temp)^{2}}
+\deqn{ln(10^{9}D) = a_{1} + a_{2}(1000/T) + a_{3}(1000/T)^{2}}
 
 \tabular{rrrrrr}{
 Where:\cr

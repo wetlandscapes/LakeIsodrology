@@ -5,7 +5,7 @@
 #'
 #' Diffusion of HH16O as determined by Holz et al. (2000):
 #'
-#' \deqn{ln(10^{9}D) = a_{1} + a_{2}(1000/Temp) + a_{3}(1000/Temp)^{2}}
+#' \deqn{ln(10^{9}D) = a_{1} + a_{2}(1000/T) + a_{3}(1000/T)^{2}}
 #'
 #' \tabular{rrrrrr}{
 #' Where:\cr
@@ -19,9 +19,9 @@
 #' accurate 1H NMR PFG measurements. Physical Chemistry Chemical Physics 2 (20):
 #' 4740 - 4742. DOI: 10.1039/b005319h.
 #'
-#' @param Temp Vector of air temperatures (Kelvin)
+#' @param temperature Vector of air temperatures (C). \eqn{T}
 #' @param Do Diffussion coefficient (1e-9 m^2 s^-1)
-#' @param Temp.s Standardized temperature (Kelvin)
+#' @param temp.s Standardized temperature (Kelvin)
 #' @param gamma Fitted exponent [-]
 #'
 #' @return Returns a temperature-dependent estimate of molecular diffsuion for
@@ -33,11 +33,12 @@
 #' HH16O.diffusion <- HH16O_diff(Temps)
 #' ggplot2::qplot(Temps, HH16O.diffusion, geom = "point")
 
-HH16O_diff <- function(Temp,
+HH16O_diff <- function(temperature,
                        Do = 1.635e-08,
-                       Temp.s = 215.05,
+                       temp.s = 215.05,
                        gamma = 2.063){
-  Temp.ratio <- (Temp/Temp.s) - 1
+  Temp.K <- temperature + 273.15
+  Temp.ratio <- (Temp.K/temp.s) - 1
   Right.side <- Temp.ratio^gamma
   out <- Do * Right.side
   return(out)
