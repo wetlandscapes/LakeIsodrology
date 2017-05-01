@@ -7,7 +7,7 @@
 #' Kinetic enrichment is formulated as (Gat et al. 2001, Gibson et al. 2008,
 #' Horita et al. 2008):
 #'
-#' \deqn{\epsilon_{K} = \theta (1 - h_{N}) C_{K}}
+#' \deqn{\epsilon_{K} = n (1 - h_{N}) \theta C_{K}}
 #'
 #' Note that this function assumes the study lakes have little influence on the
 #' atmospheric boundary layer (\eqn{\theta = 1}), which may not be true for
@@ -38,6 +38,6 @@
 #' @examples
 #'
 kin_enrich <- function(hum_norm, Ck, n = 0.5, theta = 1){
-  e_K <- n * (1 - hum_norm) * Ck
+  e_K <- n * (1 - hum_norm) * theta * Ck
   e_K
 }
