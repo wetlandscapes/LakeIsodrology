@@ -43,6 +43,6 @@ E_RyanHarleman <- function(Ta, Ts, U, rho = 998, a = 2.7, b = 3.1){
   #Convert the saturated vapor pressure from kPa to mb, where 1 kPa = 10 mb.
   e.part <- (sat_vap(Ts) * 10) - (sat_vap(Ta) * 10)
   conv <- 86.4 / (2.257 * rho)
-  E <- -(T.part + U.part) * e.part * conv
+  E <- (T.part + U.part) * e.part * conv
   E
 }
