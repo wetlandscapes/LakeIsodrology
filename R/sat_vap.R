@@ -11,14 +11,14 @@
 #' Guidelines for computing crop water requirements - FAO Irrigation and
 #' drainage paper 56. FAO, Rome, 300(9), D05109.
 #'
-#' @param temperature Air temperature \eqn{T} (\eqn{C})
+#' @param temperature Air temperature, \eqn{T} (\eqn{C}).
 #'
 #' @export
 #'
 #' @examples
 #'
 sat_vap <- function(temperature){
-  right <- exp((T * 17.3) / (T + 237.3))
+  right <- exp((temperature * 17.3) / (temperature + 237.3))
   es <- 0.611 * right
   es
 }

@@ -7,7 +7,7 @@
 sat_vap(temperature)
 }
 \arguments{
-\item{temperature}{Air temperature \eqn{T} (\eqn{C})}
+\item{temperature}{Air temperature, \eqn{T} (\eqn{C}).}
 }
 \description{
 \code{sat_vap} determines the saturation vapor pressure, \eqn{e_{s}} (\eqn{kPa}), for a

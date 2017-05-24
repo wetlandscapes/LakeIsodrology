@@ -25,7 +25,7 @@ self-diffusion of a system.
 Kinetic enrichment is formulated as (Gat et al. 2001, Gibson et al. 2008,
 Horita et al. 2008):
 
-\deqn{\epsilon_{K} = \theta (1 - h_{N}) C_{K}}
+\deqn{\epsilon_{K} = n (1 - h_{N}) \theta C_{K}}
 
 Note that this function assumes the study lakes have little influence on the
 atmospheric boundary layer (\eqn{\theta = 1}), which may not be true for
