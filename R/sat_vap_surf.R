@@ -25,5 +25,5 @@
 #'
 sat_vap_surf <- function(e_s_Ta, Del, Ts, Ta){
   e_s_Ts <- e_s_Ta + (Del * (Ts - Ta))
-  s_s_Ts
+  e_s_Ts
 }
