@@ -18,6 +18,6 @@
 #' @examples
 #'
 atm_vap <- function(W, es){
-  ea <- W * es
+  ea <- (W / 100) * es
   ea
 }
