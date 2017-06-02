@@ -41,7 +41,6 @@ E_Makkink <- function(del, gamma, Qs, L = 2.47, rho = 998, a = 52.6, b = 0.12){
   pt1 <- del / (del + gamma)
   pt2 <- Qs / (L * rho)
   left <- a * pt1 * pt2
-  E <- left - b
-  E <- ifelse(E < 0, 0, E)
-  E
+  out <- left - b
+  out
 }
