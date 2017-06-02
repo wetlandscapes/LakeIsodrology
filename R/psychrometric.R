@@ -22,7 +22,7 @@
 #'
 psychrometric <- function(P = 101.3, ca = 1e-3, L = 2.47){
   top <- ca * P
-  bot <- 0.622 * latent
+  bot <- 0.622 * L
   gamma <- top / bottom
   gamma
 }

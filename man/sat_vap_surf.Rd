@@ -4,7 +4,7 @@
 \alias{sat_vap_surf}
 \title{Saturation vapor pressure at the water surface}
 \usage{
-sat_vap_surf(es, del, Ts, Ta)
+sat_vap_surf(es, del, Tls, Ta)
 }
 \arguments{
 \item{es}{The saturation vapor pressure of the atmosphere,
@@ -13,9 +13,9 @@ sat_vap_surf(es, del, Ts, Ta)
 \item{del}{Slope of the saturation vapor pressure curve, \eqn{\Delta}
 (\eqn{kPa C^{-1}}).}
 
-\item{Ta}{Temperature of the atmosphere, \eqn{T_{a}} (\eqn{C}).}
-
 \item{Tls}{Water temperature at the lake surface, \eqn{T_{ls}} (\eqn{C}).}
+
+\item{Ta}{Temperature of the atmosphere, \eqn{T_{a}} (\eqn{C}).}
 }
 \description{
 \code{sat_vap_surf} returns the estimated saturation vapor pressure,

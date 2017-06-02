@@ -23,7 +23,7 @@
 #'
 #' @examples
 #'
-sat_vap_surf <- function(es, del, Ts, Ta){
-  els <- es + (del * (Ts - Ta))
+sat_vap_surf <- function(es, del, Tls, Ta){
+  els <- es + (del * (Tls - Ta))
   els
 }
