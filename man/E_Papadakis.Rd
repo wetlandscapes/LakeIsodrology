@@ -4,7 +4,7 @@
 \alias{E_Papadakis}
 \title{Lake evaporation (Papadakis method)}
 \usage{
-E_Papadakis(esmax, esmin, d, a = 0.5625, b = 2)
+E_Papadakis(esmax, esmin, day, a = 0.5625, b = 2)
 }
 \arguments{
 \item{esmax}{Maximum saturation vapor pressure for a given day,
@@ -13,7 +13,7 @@ E_Papadakis(esmax, esmin, d, a = 0.5625, b = 2)
 \item{esmin}{Minimum saturation vapor pressure for a given day,
 \eqn{e_{s,min}} (\eqn{kPa}).}
 
-\item{d}{Number of days in a month, \eqn{d} (\eqn{days}).}
+\item{day}{Number of days in a month, \eqn{day} (\eqn{days}).}
 
 \item{a}{An emperical coefficient, assumed to be 0.5625.}
 
@@ -28,7 +28,7 @@ days in a month.
 \eqn{E} is determined by (Papadakis 1965, McGuinness and Bordne 1972,
 Rosenberry et al. 2007):
 
-\deqn{E = a (e_{s,max} - [e_{s,min} - b]) \bigg(\frac{10}{d} \bigg)}
+\deqn{E = a (e_{s,max} - [e_{s,min} - b]) \bigg(\frac{10}{day} \bigg)}
 
 Papadakis J. 1965. Potential evapotranspiration. Bueuos Aires, 54 pp.
 
