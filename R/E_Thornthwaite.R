@@ -32,5 +32,6 @@ E_Thornthwaite <- function(Ta, I, day, a = 1.6, b = 6.75e-7, c = 7.71e-5, d = 1.
   exp.part <- (b * (I ^ 3)) - (c * (I ^ 2)) + (d * I) + e
   Ta.part <- (10 * Ta / I) ^ exp.part
   E <- a * Ta.part * (10 / day)
+  E <- ifelse(is.nan(E), 0, E)
   E
 }

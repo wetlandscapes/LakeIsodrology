@@ -23,6 +23,8 @@
 #'
 AnnualHeatIndex <- function(Ta, a = 1.514){
   i <- (Ta/5) ^ a
+  #Do not consider negative values.
+  i <- ifelse(is.nan(i), 0, i)
   I <- sum(i)
   I
 }
