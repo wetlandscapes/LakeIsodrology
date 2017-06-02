@@ -4,22 +4,22 @@
 \alias{sat_vap_surf}
 \title{Saturation vapor pressure at the water surface}
 \usage{
-sat_vap_surf(e_s_Ta, Del, Ts, Ta)
+sat_vap_surf(es, del, Ts, Ta)
 }
 \arguments{
-\item{e_s_Ta}{The saturation vapor pressure of the atmosphere,
-\eqn{e_{s_{Ta}}} (\eqn{kPa}).}
+\item{es}{The saturation vapor pressure of the atmosphere,
+\eqn{e_{s}} (\eqn{kPa}).}
 
-\item{Del}{Slope of the saturation vapor pressure curve, \eqn{\Delta}
+\item{del}{Slope of the saturation vapor pressure curve, \eqn{\Delta}
 (\eqn{kPa C^{-1}}).}
 
-\item{Ts}{Water temperature at the lake surface, \eqn{Ts} (\eqn{C}).}
+\item{Ta}{Temperature of the atmosphere, \eqn{T_{a}} (\eqn{C}).}
 
-\item{Ta}{Temperature of the atmosphere, \eqn{Ta} (\eqn{C}).}
+\item{Tls}{Water temperature at the lake surface, \eqn{T_{ls}} (\eqn{C}).}
 }
 \description{
 \code{sat_vap_surf} returns the estimated saturation vapor pressure,
-\eqn{e_{s_{Ts}}}, of a water body at its surface in \eqn{kPa}.
+\eqn{e_{ls}}, of a water body at its surface in \eqn{kPa}.
 }
 \details{
 The saturation vapor pressure of a water body is determined given a known air
@@ -27,7 +27,7 @@ temperature, lake surface temperature, the slope of the saturation vapor
 pressure curve for a given temperature and saturation vapor pressure for the
 atmosphere. The relationship used is (Dingman 2008):
 
-\deqn{e_{s_{Ts}} = e_{s_{Ta}} + \Delta(T_{s} - T_{a})}
+\deqn{e_{ls} = e_{s} + \Delta(T_{ls} - T_{a})}
 
 Dingman SL. 2008. Physical hydrology. Waveland Press.
 }

@@ -5,20 +5,20 @@
 #'
 #' Saturation vapor pressure is determine by (Allen et al. 1998):
 #'
-#' \deqn{e_{s} = \frac{0.611 exp(T 17.3)}{T + 237.3}}
+#' \deqn{e_{s} = \frac{0.611 e^{(T_{a} 17.3)}}{T_{a} + 237.3}}
 #'
 #' Allen, RG, LS Pereira, D Raes, M Smith. 1998. Crop evapotranspiration -
 #' Guidelines for computing crop water requirements - FAO Irrigation and
 #' drainage paper 56. FAO, Rome, 300(9), D05109.
 #'
-#' @param temperature Air temperature, \eqn{T} (\eqn{C}).
+#' @param Ta Air temperature, \eqn{T_{a}} (\eqn{C}).
 #'
 #' @export
 #'
 #' @examples
 #'
-sat_vap <- function(temperature){
-  right <- exp((temperature * 17.3) / (temperature + 237.3))
+sat_vap <- function(Ta){
+  right <- exp((Ta * 17.3) / (Ta + 237.3))
   es <- 0.611 * right
   es
 }

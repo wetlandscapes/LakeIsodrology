@@ -4,14 +4,16 @@
 \alias{equil_enrich}
 \title{Liquid-vapor equilibrium enrichment factor}
 \usage{
-equil_enrich(a_VL)
+equil_enrich(alpha_VL)
 }
 \arguments{
-\item{a_VL}{Liquid-vapor equilibrium fractionation factor, \eqn{\alpha_{V/L}} [\eqn{-}].}
+\item{alpha_VL}{Liquid-vapor equilibrium fractionation factor,
+\eqn{\alpha_{V/L}} [\eqn{-}].}
 }
 \description{
 \code{equil_enrich} estimates the isotopic enrichment, \eqn{\epsilon_{V/L}}
-(\eqn{‰}), given a known liquid-vapor equilibrium fractionation.
+(\eqn{\text{\textperthousand}}), given a known liquid-vapor equilibrium
+fractionation.
 }
 \details{
 Enrichment is determined via (Horita et al. 2008):

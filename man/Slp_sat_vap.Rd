@@ -4,13 +4,13 @@
 \alias{slp_sat_vap}
 \title{Slope of the saturation vapor pressure curve}
 \usage{
-slp_sat_vap(temperature, ea)
+slp_sat_vap(Ta, es)
 }
 \arguments{
-\item{temperature}{The air temperature above a body of water, \eqn{T}
+\item{Ta}{The air temperature above a body of water, \eqn{T}
 (\eqn{C}).}
 
-\item{ea}{Saturation vapor pressure of air, \eqn{e_{a}} (\eqn{kPa}).}
+\item{es}{Saturation vapor pressure of air, \eqn{e_{a}} (\eqn{kPa}).}
 }
 \description{
 Estimates the slope of the saturation vapor pressure curve, \eqn{\Delta},
@@ -20,7 +20,7 @@ the returned value are (\eqn{kPa C^{-1}}).
 \details{
 Slope is estimated via (Allen et al. 1998):
 
-\deqn{\Delta = \frac{4098 e_{a}}{(T + 237.3)^{2}}}
+\deqn{\Delta = \frac{4098 e_{s}}{(T_{a} + 237.3)^{2}}}
 
 Allen, RG, LS Pereira, D Raes, M Smith. 1998. Crop evapotranspiration -
 Guidelines for computing crop water requirements - FAO Irrigation and

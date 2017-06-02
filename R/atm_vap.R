@@ -6,18 +6,18 @@
 #'
 #' Atmospheric vapor pressure (Dingman 2008):
 #'
-#' \deqn{e_{a} = RH e_{s_{Ta}}}
+#' \deqn{e_{a} = W \cdot e_{s}}
 #'
 #' Dingman SL. 2008. Physical hydrology. Waveland Press.
 #'
-#' @param RH Relative humidity, \eqn{RH} [\eqn{-}]
-#' @param e_sat Saturation vapor pressure, \eqn{e_{s_{Ta}}} (\eqn{kPa}).
+#' @param W Relative humidity, \eqn{W} [\eqn{-}]
+#' @param es Saturation vapor pressure, \eqn{e_{s}} (\eqn{kPa}).
 #'
 #' @export
 #'
 #' @examples
 #'
-atm_vap <- function(RH, e_sat){
-  e_a <- RH * e_sat
-  e_a
+atm_vap <- function(W, es){
+  ea <- W * es
+  ea
 }

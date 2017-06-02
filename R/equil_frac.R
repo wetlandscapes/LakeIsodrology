@@ -7,25 +7,25 @@
 #'
 #' Fractionation s determined via (Majoube 1971):
 #'
-#' Hydrogen: \eqn{10^{3} ln\alpha_{V/L} = 24.844(10^{6}/(T + 273.15)^{2}) -
-#' 76.248(10^{3}/(T + 273.15)^{2}) + 52.612}
+#' Hydrogen: \eqn{10^{3} ln\alpha_{V/L} = 24.844(10^{6}/(T_{a} + 273.15)^{2}) -
+#' 76.248(10^{3}/(T_{a} + 273.15)^{2}) + 52.612}
 #'
-#' Oxygen: \eqn{10^{3} ln\alpha_{V/L} = 1.137(10^{6}/(T + 273.15)^{2}) -
-#' 0.4156(10^{3}/(T + 273.15)) - 2.0667}
+#' Oxygen: \eqn{10^{3} ln\alpha_{V/L} = 1.137(10^{6}/(T_{a} + 273.15)^{2}) -
+#' 0.4156(10^{3}/(T_{a} + 273.15)) - 2.0667}
 #'
 #' Majoube M. 1971. Oxygen-18 and deuterium fractionation between water and
 #' steam (in French). Journal de Chimie Physique et de Physico-Chimie Biologique
 #' 68: 1423–1436.
 #'
-#' @param temperature Numeric air temperature value, \eqn{T} (\eqn{C}).
+#' @param Ta Air temperature, \eqn{T_{a}} (\eqn{C}).
 #' @param element Character indicating "Hydrogen" or "Oxygen".
 #'
 #' @export
 #'
 #' @examples
 #'
-equil_frac <- function(temperature, element){
-  temp_K <- temperature + 273.15
+equil_frac <- function(Ta, element){
+  temp_K <- Ta + 273.15
   if(element == "Hydrogen"){
     first <- 24.844 * ((1e+06) / ((temp_K^2)))
     second <- -76.248 * (1e+03)/(temp_K)

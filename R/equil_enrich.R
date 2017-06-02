@@ -1,7 +1,8 @@
 #' Liquid-vapor equilibrium enrichment factor
 #'
 #' \code{equil_enrich} estimates the isotopic enrichment, \eqn{\epsilon_{V/L}}
-#' (\eqn{‰}), given a known liquid-vapor equilibrium fractionation.
+#' (\eqn{\text{\textperthousand}}), given a known liquid-vapor equilibrium
+#' fractionation.
 #'
 #' Enrichment is determined via (Horita et al. 2008):
 #'
@@ -11,13 +12,14 @@
 #' water: A status report of the Craig-Gordon model. Isotopes in environmental
 #' and health studies 44 (1): 23–49. DOI: 10.1080/10256010801887174.
 #'
-#' @param a_VL Liquid-vapor equilibrium fractionation factor, \eqn{\alpha_{V/L}} [\eqn{-}].
+#' @param alpha_VL Liquid-vapor equilibrium fractionation factor,
+#'   \eqn{\alpha_{V/L}} [\eqn{-}].
 #'
 #' @export
 #'
 #' @examples
 #'
-equil_enrich <- function(a_VL){
-  e_VL <- (1 - a_VL) * 1e3
+equil_enrich <- function(alpha_VL){
+  e_VL <- (1 - alpha_VL) * 1e3
   e_VL
 }

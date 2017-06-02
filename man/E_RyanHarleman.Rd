@@ -4,23 +4,35 @@
 \alias{E_RyanHarleman}
 \title{Lake evaporation (Ryan-Harleman method)}
 \usage{
-E_RyanHarleman(Ta, Ts, U, rho = 998, a = 2.7, b = 3.1)
+E_RyanHarleman(Ta, Tls, U, els, ea, L = 2.47, rho = 998, a = 2.7,
+  b = 1/3, c = 3.1)
 }
 \arguments{
 \item{Ta}{Air temperature, \eqn{T_{a}} (\eqn{C}).}
 
-\item{Ts}{Lake surface temperature, \eqn{T_{s}} (\eqn{C}).}
+\item{Tls}{Lake surface temperature, \eqn{T_{ls}} (\eqn{C})}
 
 \item{U}{Wind speed at 2 m from the lake surface, \eqn{U} (\eqn{m/s}).}
+
+\item{els}{Saturated vapor pressure at the lake surface, \eqn{e_{ls}}
+(\eqn{kPa}).}
+
+\item{ea}{Atmospheric vapor pressure, \eqn{e_{a}} (\eqn{kPa}).}
+
+\item{L}{Latent heat of vaporization, \eqn{\lambda_{v}} (\eqn{MJ kg^{-1}}).
+Assumed to be 2.47.}
 
 \item{rho}{Density of water, \eqn{rho} (\eqn{kg m^{-3}}). Assumed to be 998
 \eqn{kg m^{-3}}.}
 
-\item{a}{An empirical coefficient modifying the temperature gradient,
-[\eqn{-}]. Assumed to be 2.7.}
+\item{a}{An empirical coefficient modifying the temperature gradient. Assumed
+to be 2.7.}
 
-\item{b}{An emperical coefficent modifying the influence of wind, [\eqn{-}].
-Assumed to be 3.1.}
+\item{b}{Another empirical coefficient modifying the temperature gradient.
+Assumed to be 1/3.}
+
+\item{c}{An emperical coefficent modifying the influence of wind. Assumed to
+be 3.1.}
 }
 \description{
 \code{E_RyanHarleman} returns the daily rate of evaporation, \eqn{E}
@@ -31,8 +43,8 @@ windspeed 2m above the lake surface.
 Daily evaporation is determined via (Ryan and Harleman 1973, Rasmussen et al.
 1995, Rosenberry et al. 2007):
 
-\deqn{E = \frac{(a \lbrack |T_{s} - T_{a}| \rbrack ^{1/3} + b U)(e_{s} -
-e_{a}) }{L \rho} 86.4}
+\deqn{E = \frac{(a \lbrack T_{ls} - T_{a} \rbrack ^{b} + c U)(e_{ls} - e_{a})
+}{\lambda_{v} \rho} 86.4}
 
 Rasmussen AH, Hondzo M, Stefan HG. 1995. A test of several evaporation
 equations for water temperature simulations in lakes. JAWRA Journal of the
@@ -47,5 +59,14 @@ cooling pond behavior. Vol. 161. Dept. of Civil Engineering, Massachusetts
 Institute of Technology.
 }
 \examples{
+#Calculate the saturation vapor pressure for a given temperature.
+es <- sat_vap(Ta)
+#Determine the slope of the saturation vapor-pressure curve.
+del <- slp_sat_vap(Ta, es)
+#Use these data, in addition to the surface temperature of the lake, to determine
+# the vapor pressure at the lake's surface.
+els <- sat_vap_surf(es, del, Tls, Ta)
+#Apply values to the Ryan-Harleman evaporation function:
+E_RyanHarleman(Ta, Tls, U, els, ea)
 
 }

@@ -1,13 +1,13 @@
 #' Liquid-vapor kinetic enrichment factor
 #'
-#' \code{kin_enrich} calculates the kinetic enrichment, \eqn{\epsilon_{K}}
-#' (\eqn{‰}), that occurs, given the normalized relative humidity and
+#' \code{kin_enrich} calculates the kinetic enrichment, \eqn{\epsilon_{diff}}
+#' (\eqn{\text{\textperthousand}}), that occurs, given the normalized relative humidity and
 #' self-diffusion of a system.
 #'
 #' Kinetic enrichment is formulated as (Gat et al. 2001, Gibson et al. 2008,
 #' Horita et al. 2008):
 #'
-#' \deqn{\epsilon_{K} = n (1 - h_{N}) \theta C_{K}}
+#' \deqn{\epsilon_{diff} = n (1 - h_{n}) \theta \cdot C_{K}}
 #'
 #' Note that this function assumes the study lakes have little influence on the
 #' atmospheric boundary layer (\eqn{\theta = 1}), which may not be true for
@@ -27,17 +27,17 @@
 #' and health studies 44 (1): 23–49. DOI: 10.1080/10256010801887174.
 #'
 #'
-#' @param hum_norm Normalize humidity, \eqn{h_{N}} [\eqn{-}].
-#' @param Ck Self-diffussion ratio, \eqn{C_{K}} (\eqn{‰}).
+#' @param hn Normalize relative humidity, \eqn{h_{n}} [\eqn{-}].
+#' @param Ck Self-diffussion ratio, \eqn{C_{K}} (\eqn{\text{\textperthousand}}).
 #' @param n Roughness coefficient, \eqn{n} [\eqn{-}]. Assumed 0.5.
 #' @param theta Atmospheric influence of the study lake, \eqn{\theta} [\eqn{-}].
-#'   Assumed 1.
+#'   Assumed 1, but will be smaller for verylarge lakes.
 #'
 #' @export
 #'
 #' @examples
 #'
-kin_enrich <- function(hum_norm, Ck, n = 0.5, theta = 1){
-  e_K <- n * (1 - hum_norm) * theta * Ck
-  e_K
+kin_enrich <- function(hn, Ck, n = 0.5, theta = 1){
+  frac_diff <- n * (1 - hn) * theta * Ck
+  frac_diff
 }

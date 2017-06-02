@@ -4,23 +4,23 @@
 \alias{norm_humidity}
 \title{Normalized humidity}
 \usage{
-norm_humidity(e_s_Ts, e_a)
+norm_humidity(els, ea)
 }
 \arguments{
-\item{e_s_Ts}{Saturation vapor pressure at the surface of a lake,
-\eqn{e_{s_{Ts}}} (\eqn{kPa}).}
+\item{els}{Saturation vapor pressure at the surface of a lake,
+\eqn{e_{ls}} (\eqn{kPa}).}
 
-\item{e_a}{Vapor pressure of the atmosphere, \eqn{e_{a}} (\eqn{kPa}).}
+\item{ea}{Vapor pressure of the atmosphere, \eqn{e_{a}} (\eqn{kPa}).}
 }
 \description{
-\code{norm_humidity} returns the normalized humidity, \eqn{h_{N}} [\eqn{-}],
+\code{norm_humidity} returns the normalized humidity, \eqn{h_{n}} [\eqn{-}],
 given the saturation vapor pressure at the surface of a lake and atmospheric
 vapor pressure.
 }
 \details{
 Normalized humidity is defined by (Horita et al. 2008):
 
-\deqn{h_{N} = (e_{s_{Ts}} - e_{a}) / e_{s_{Ts}}}
+\deqn{h_{n} = \frac{(e_{ls} - e_{a})}{e_{ls}}}
 
 See Horita et al. (2008) for a discussion concerning the use of relative vs
 normalized humidity in the Craig-Gordon model. Also note that this

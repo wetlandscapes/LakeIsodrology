@@ -4,10 +4,10 @@
 \alias{equil_frac}
 \title{Liquid-vapor equilibrium fractionation}
 \usage{
-equil_frac(temperature, element)
+equil_frac(Ta, element)
 }
 \arguments{
-\item{temperature}{Numeric air temperature value, \eqn{T} (\eqn{C}).}
+\item{Ta}{Air temperature, \eqn{T_{a}} (\eqn{C}).}
 
 \item{element}{Character indicating "Hydrogen" or "Oxygen".}
 }
@@ -20,11 +20,11 @@ output \eqn{\alpha} value are in decimal notation [-].
 \details{
 Fractionation s determined via (Majoube 1971):
 
-Hydrogen: \eqn{10^{3} ln\alpha_{V/L} = 24.844(10^{6}/(T + 273.15)^{2}) -
-76.248(10^{3}/(T + 273.15)^{2}) + 52.612}
+Hydrogen: \eqn{10^{3} ln\alpha_{V/L} = 24.844(10^{6}/(T_{a} + 273.15)^{2}) -
+76.248(10^{3}/(T_{a} + 273.15)^{2}) + 52.612}
 
-Oxygen: \eqn{10^{3} ln\alpha_{V/L} = 1.137(10^{6}/(T + 273.15)^{2}) -
-0.4156(10^{3}/(T + 273.15)) - 2.0667}
+Oxygen: \eqn{10^{3} ln\alpha_{V/L} = 1.137(10^{6}/(T_{a} + 273.15)^{2}) -
+0.4156(10^{3}/(T_{a} + 273.15)) - 2.0667}
 
 Majoube M. 1971. Oxygen-18 and deuterium fractionation between water and
 steam (in French). Journal de Chimie Physique et de Physico-Chimie Biologique

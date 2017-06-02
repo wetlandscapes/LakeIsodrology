@@ -4,12 +4,12 @@
 \alias{atm_vap}
 \title{Atmospheric vapor pressure}
 \usage{
-atm_vap(RH, e_sat)
+atm_vap(W, es)
 }
 \arguments{
-\item{RH}{Relative humidity, \eqn{RH} [\eqn{-}]}
+\item{W}{Relative humidity, \eqn{W} [\eqn{-}]}
 
-\item{e_sat}{Saturation vapor pressure, \eqn{e_{s_{Ta}}} (\eqn{kPa}).}
+\item{es}{Saturation vapor pressure, \eqn{e_{s}} (\eqn{kPa}).}
 }
 \description{
 \code{atm_vap} returns the ambient atmospheric vapor pressure, \eqn{e_{a}}
@@ -19,7 +19,7 @@ particular temperature.
 \details{
 Atmospheric vapor pressure (Dingman 2008):
 
-\deqn{e_{a} = RH e_{s_{Ta}}}
+\deqn{e_{a} = W \cdot e_{s}}
 
 Dingman SL. 2008. Physical hydrology. Waveland Press.
 }

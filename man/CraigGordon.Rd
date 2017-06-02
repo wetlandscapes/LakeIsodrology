@@ -10,24 +10,25 @@ CraigGordon(alpha_VL, Del_L, hn, Del_A, frac_VL, frac_diff)
 \item{alpha_VL}{Equilibrium fractionation factor between vapor and liquid
 phases, \eqn{\alpha_{V/L}} [\eqn{-}].}
 
-\item{Del_L}{Delta value for lake water, \eqn{\delta_{L}} (\eqn{‰}).}
+\item{Del_L}{Delta value for lake water, \eqn{\delta_{L}}
+(\eqn{\text{\textperthousand}}).}
 
 \item{hn}{Relative humidity normalized to saturation vapor pressure at the
 lake-atmosphere interface, \eqn{h_{N}} [\eqn{-}].}
 
 \item{Del_A}{Delta value for the "free" atmosphere \eqn{\delta_{A}},
-(\eqn{‰}).}
+(\eqn{\text{\textperthousand}}).}
 
 \item{frac_VL}{Vapor-liquid equilibrium fractionation factor,
-\eqn{\epsilon_{V/L}} (\eqn{‰}).}
+\eqn{\epsilon_{V/L}} (\eqn{\text{\textperthousand}}).}
 
 \item{frac_diff}{Kinetic equilibrium fractionation factor,
-\eqn{\epsilon_{diff}}, (\eqn{‰}).}
+\eqn{\epsilon_{diff}}, (\eqn{\text{\textperthousand}}).}
 }
 \description{
 Implements the Craig-Gordon isotope evaporation model for an individual
 isotope of water (H or O). Units of the output delta value, \eqn{\delta_{E}},
-are providede in \eqn{‰}.
+are provided in \eqn{\text{\textperthousand}}.
 }
 \details{
 The Craig-Gordon model as defined by Gat et al. (2001):

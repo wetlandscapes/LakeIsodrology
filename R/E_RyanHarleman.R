@@ -7,8 +7,8 @@
 #'Daily evaporation is determined via (Ryan and Harleman 1973, Rasmussen et al.
 #'1995, Rosenberry et al. 2007):
 #'
-#'\deqn{E = \frac{(a \lbrack |T_{s} - T_{a}| \rbrack ^{1/3} + b U)(e_{s} -
-#'e_{a}) }{L \rho} 86.4}
+#'\deqn{E = \frac{(a \lbrack T_{ls} - T_{a} \rbrack ^{b} + c U)(e_{ls} - e_{a})
+#'}{\lambda_{v} \rho} 86.4}
 #'
 #'Rasmussen AH, Hondzo M, Stefan HG. 1995. A test of several evaporation
 #'equations for water temperature simulations in lakes. JAWRA Journal of the
@@ -23,28 +23,41 @@
 #'Institute of Technology.
 #'
 #'@param Ta Air temperature, \eqn{T_{a}} (\eqn{C}).
-#'@param Ts Lake surface temperature, \eqn{T_{s}} (\eqn{C}).
+#'@param Tls Lake surface temperature, \eqn{T_{ls}} (\eqn{C})
 #'@param U Wind speed at 2 m from the lake surface, \eqn{U} (\eqn{m/s}).
+#'@param els Saturated vapor pressure at the lake surface, \eqn{e_{ls}}
+#'  (\eqn{kPa}).
+#'@param ea Atmospheric vapor pressure, \eqn{e_{a}} (\eqn{kPa}).
+#'@param L Latent heat of vaporization, \eqn{\lambda_{v}} (\eqn{MJ kg^{-1}}).
+#'  Assumed to be 2.47.
 #'@param rho Density of water, \eqn{rho} (\eqn{kg m^{-3}}). Assumed to be 998
 #'  \eqn{kg m^{-3}}.
-#'@param a An empirical coefficient modifying the temperature gradient,
-#'  [\eqn{-}]. Assumed to be 2.7.
-#'@param b An emperical coefficent modifying the influence of wind, [\eqn{-}].
-#'  Assumed to be 3.1.
+#'@param a An empirical coefficient modifying the temperature gradient. Assumed
+#'  to be 2.7.
+#'@param b Another empirical coefficient modifying the temperature gradient.
+#'  Assumed to be 1/3.
+#'@param c An emperical coefficent modifying the influence of wind. Assumed to
+#'  be 3.1.
 #'
 #'@export
 #'
 #' @examples
+#' #Calculate the saturation vapor pressure for a given temperature.
+#' es <- sat_vap(Ta)
+#' #Determine the slope of the saturation vapor-pressure curve.
+#' del <- slp_sat_vap(Ta, es)
+#' #Use these data, in addition to the surface temperature of the lake, to determine
+#' # the vapor pressure at the lake's surface.
+#' els <- sat_vap_surf(es, del, Tls, Ta)
+#' #Apply values to the Ryan-Harleman evaporation function:
+#' E_RyanHarleman(Ta, Tls, U, els, ea)
 #'
-E_RyanHarleman <- function(Ta, Ts, U, rho = 998, a = 2.7, b = 3.1){
-  T.diff <- (abs(Ts - Ta)) ^ (1/3)
+E_RyanHarleman <- function(Ta, Tls, U, els, ea, L = 2.47, rho = 998, a = 2.7, b = 1/3, c = 3.1){
+  T.diff <- (abs(Tls - Ta)) ^ b
   T.part <- a * T.diff
-  U.part <- b * U
-  ea <- sat_vap(Ta)
-  del <- slp_sat_vap(Ta, ea)
-  es <- sat_vap_surf(ea, del, Ts, Ta)
+  U.part <- c * U
   #Convert the saturated vapor pressure from kPa to mb, where 1 kPa = 10 mb.
-  e.part <- (es * 10) - (ea * 10)
+  e.part <- (els * 10) - (ea * 10)
   conv <- 86.4 / (2.257 * rho)
   E <- (T.part + U.part) * e.part * conv
   E
