@@ -14,9 +14,6 @@ sat_vap_dens(es, Ta, R = 461.5)
 \item{R}{Gas constant for water vapor, \eqn{\rho_{s}} (\eqn{J kg^{-1}
 K^{-1}}). Assumed to be 461.5.}
 }
-\value{
-
-}
 \description{
 \code{sat_vap_dens} estimates the saturation vapor density, \eqn{\rho_{s}}, returning
 a value in \eqn{g m^{-3}}.

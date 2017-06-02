@@ -18,7 +18,7 @@
 #' @param ps saturation vapor density, \eqn{\rho_{s}} (\eqn{g m^{-3}}).
 #' @param a An empirical coefficient, assumed to be 0.55.
 #'
-#' @return
+#' @export
 #'
 #' @examples
 #'

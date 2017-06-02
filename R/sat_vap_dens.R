@@ -19,7 +19,7 @@
 #' @param R Gas constant for water vapor, \eqn{\rho_{s}} (\eqn{J kg^{-1}
 #'   K^{-1}}). Assumed to be 461.5.
 #'
-#' @return
+#' @export
 #'
 #' @examples
 #'

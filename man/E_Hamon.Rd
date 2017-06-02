@@ -13,9 +13,6 @@ E_Hamon(D, ps, a = 0.55)
 
 \item{a}{An empirical coefficient, assumed to be 0.55.}
 }
-\value{
-
-}
 \description{
 \code{E_Hamon} provides an estimate of daily evaporation, \eqn{E} (\eqn{mm
 day^{-1}}) using data related to day length.
