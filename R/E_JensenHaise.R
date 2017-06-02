@@ -41,7 +41,8 @@
 #' @examples
 #'
 E_JensenHaise <- function(Ta, Qs, a = 0.014, b = 0.37, c = 3.523e-2){
-  left <- ((a * Ta) - b)
+  Ta.F <- (Ta * 9 / 5) + 32
+  left <- ((a * Ta.F) - b)
   right <- Qs * c
   out <- left * right
   out

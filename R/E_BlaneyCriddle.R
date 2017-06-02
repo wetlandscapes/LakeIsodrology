@@ -32,8 +32,9 @@
 #' @examples
 #'
 E_BlaneyCriddle <- function(Ta, D, Da, a = 0.0173, b = 0.314){
-  pt1 <- (a * Ta)
+  Ta.F <- (Ta * 9 / 5) + 32
+  pt1 <- (a * Ta.F)
   pt2 <- pt1 - b
-  E <- pt2 * Ta * (D / DTa) * 25.4
+  E <- pt2 * Ta.F * (D / DTa) * 25.4
   E
 }
