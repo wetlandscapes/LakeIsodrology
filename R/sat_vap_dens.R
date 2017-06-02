@@ -1,6 +1,6 @@
 #' Saturation vapor density
 #'
-#' \code{SVD} estimates the saturation vapor density, \eqn{\rho_{s}}, returning
+#' \code{sat_vap_dens} estimates the saturation vapor density, \eqn{\rho_{s}}, returning
 #' a value in \eqn{g m^{-3}}.
 #'
 #' \eqn{\rho_{s}} is estimated by (Manton and Cotton 1977):
@@ -23,7 +23,7 @@
 #'
 #' @examples
 #'
-SVD <- function(es, Ta, R = 461.5){
+sat_vap_dens <- function(es, Ta, R = 461.5){
   #Convert kPa to Pa.
   es.Pa <- es * 1000
   #Convert C to K.
