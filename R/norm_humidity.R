@@ -6,7 +6,7 @@
 #'
 #' Normalized humidity is defined by (Horita et al. 2008):
 #'
-#' \deqn{h_{n} = \frac{(e_{ls} - e_{a})}{e_{ls}}}
+#' \deqn{h_{n} = 1 - \frac{(e_{ls} - e_{a})}{e_{ls}}}
 #'
 #' See Horita et al. (2008) for a discussion concerning the use of relative vs
 #' normalized humidity in the Craig-Gordon model. Also note that this
@@ -27,5 +27,6 @@
 #'
 norm_humidity <- function(els, ea){
   hn <- (els - ea) / els
+  hn <- 1 - hn
   hn
 }
