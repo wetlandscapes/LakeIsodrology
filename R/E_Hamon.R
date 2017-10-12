@@ -17,13 +17,15 @@
 #' @param D Hours of daylight, \eqn{D} (\eqn{hrs}).
 #' @param ps saturation vapor density, \eqn{\rho_{s}} (\eqn{g m^{-3}}).
 #' @param a An empirical coefficient, assumed to be 0.55.
+#' @param conv A multiplier that converts base units to mm/day. It is assumed to
+#'  be 25.4, but will need to be adjust for alternative units.
 #'
 #' @export
 #'
 #' @examples
 #'
-E_Hamon <- function(D, ps, a = 0.55){
+E_Hamon <- function(D, ps, a = 0.55, conv = 25.4){
   pt1 <- (D / 12) ^ 2
-  E <- a * pt1 * ps / 100 * 25.4
+  E <- a * pt1 * ps / 100 * conv
   E
 }

@@ -4,7 +4,7 @@
 \alias{E_Papadakis}
 \title{Lake evaporation (Papadakis method)}
 \usage{
-E_Papadakis(esmax, esmin, day, a = 0.5625, b = 2)
+E_Papadakis(esmax, esmin, day, a = 0.5625, b = 2, conv = 10)
 }
 \arguments{
 \item{esmax}{Maximum saturation vapor pressure for a given day,
@@ -18,6 +18,9 @@ E_Papadakis(esmax, esmin, day, a = 0.5625, b = 2)
 \item{a}{An emperical coefficient, assumed to be 0.5625.}
 
 \item{b}{An emperical coefficient, assumed to be 2.}
+
+\item{conv}{A multiplier that converts base units to mm/day. It is assumed to
+be 10, but will need to be adjust for alternative units.}
 }
 \description{
 \code{E_Papadakis} returns an estimate of evaporation, \eqn{E} (\eqn{mm

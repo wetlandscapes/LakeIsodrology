@@ -23,15 +23,17 @@
 #' @param c An emperical coefficient, assumed to be 7.71e-5.
 #' @param d An emperical coefficient, assumed to be 1.79e-2.
 #' @param e An emperical coefficient, assumed to be 0.49.
+#' @param conv A multiplier that converts base units to mm/day. It is assumed to
+#'  be 10, but will need to be adjust for alternative units.
 #'
 #' @export
 #'
 #' @examples
 #'
-E_Thornthwaite <- function(Ta, I, day, a = 1.6, b = 6.75e-7, c = 7.71e-5, d = 1.79e-2, e = 0.49){
+E_Thornthwaite <- function(Ta, I, day, a = 1.6, b = 6.75e-7, c = 7.71e-5, d = 1.79e-2, e = 0.49, conv = 10){
   exp.part <- (b * (I ^ 3)) - (c * (I ^ 2)) + (d * I) + e
-  Ta.part <- (10 * Ta / I) ^ exp.part
-  E <- a * Ta.part * (10 / day)
+  Ta.part <- (conv * Ta / I) ^ exp.part
+  E <- a * Ta.part * (conv / day)
   E <- ifelse(is.nan(E), 0, E)
   E
 }

@@ -28,7 +28,7 @@
 #'@param els Saturated vapor pressure at the lake surface, \eqn{e_{ls}}
 #'  (\eqn{kPa}).
 #'@param ea Atmospheric vapor pressure, \eqn{e_{a}} (\eqn{kPa}).
-#'@param L Latent heat of vaporization, \eqn{\lambda_{v}} (\eqn{MJ kg^{-1}}).
+#'@param lambda Latent heat of vaporization, \eqn{\lambda_{v}} (\eqn{MJ kg^{-1}}).
 #'  Assumed to be 2.47.
 #'@param rho Density of water, \eqn{rho} (\eqn{kg m^{-3}}). Assumed to be 998
 #'  \eqn{kg m^{-3}}.
@@ -38,6 +38,8 @@
 #'  Assumed to be 1/3.
 #'@param c An emperical coefficent modifying the influence of wind. Assumed to
 #'  be 3.1.
+#'@param conv A multiplier that converts base units to mm/day. It is assumed to
+#'  be 86.4, but will need to be adjust for alternative units.
 #'
 #'@export
 #'
@@ -52,13 +54,13 @@
 #' #Apply values to the Ryan-Harleman evaporation function:
 #' E_RyanHarleman(Ta, Tls, U, els, ea)
 #'
-E_RyanHarleman <- function(Ta, Tls, U, els, ea, L = 2.47, rho = 998, a = 2.7, b = 1/3, c = 3.1){
+E_RyanHarleman <- function(Ta, Tls, U, els, ea, lambda = 2.47, rho = 998, a = 2.7, b = 1/3, c = 3.1, conv = 86.4){
   T.diff <- (abs(Tls - Ta)) ^ b
   T.part <- a * T.diff
   U.part <- c * U
   #Convert the saturated vapor pressure from kPa to mb, where 1 kPa = 10 mb.
   e.part <- (els * 10) - (ea * 10)
-  conv <- 86.4 / (2.257 * rho)
+  conv <- conv / (lambda * rho)
   E <- (T.part + U.part) * e.part * conv
   E
 }

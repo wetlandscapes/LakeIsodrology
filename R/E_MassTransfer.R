@@ -19,15 +19,17 @@
 #'   (\eqn{kPa}).
 #' @param ea Atmospheric vapor pressure, \eqn{e_{a}} (\eqn{kPa}).
 #' @param N Empirical parameter, no standard value.
+#' @param conv A multiplier that converts base units to mm/day. It is assumed to
+#'  be 10, but will need to be adjust for alternative units.
 #'
 #' @export
 #'
 #' @examples
 #'
-E_MassTransfer <- function(U, els, ea, N){
+E_MassTransfer <- function(U, els, ea, N, conv = 10){
   #Convert the saturated vapor pressure from kPa to mb, where 1 kPa = 10 mb.
   inner <- (els * 10) - (ea * 10)
   outer <- N * U * inner
-  out <- outer * 10
+  out <- outer * conv
   out
 }

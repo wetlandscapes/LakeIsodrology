@@ -26,16 +26,18 @@
 #' @param day Number of days in a month, \eqn{day} (\eqn{days}).
 #' @param a An emperical coefficient, assumed to be 0.5625.
 #' @param b An emperical coefficient, assumed to be 2.
+#' @param conv A multiplier that converts base units to mm/day. It is assumed to
+#'  be 10, but will need to be adjust for alternative units.
 #'
 #' @export
 #'
 #' @examples
 #'
-E_Papadakis <- function(esmax, esmin, day, a = 0.5625, b = 2){
+E_Papadakis <- function(esmax, esmin, day, a = 0.5625, b = 2, conv = 10){
   #Convert kPa to Pa.
   esmax.Pa <- esmax * 1000
   esmin.Pa <- esmin * 1000
   es.part <- (esmax.Pa - (esmin.Pa - b))
-  E <- a * es.part * (10 / day)
+  E <- a * es.part * (conv / day)
   E
 }

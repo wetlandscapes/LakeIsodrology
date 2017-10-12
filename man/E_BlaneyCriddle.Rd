@@ -4,7 +4,7 @@
 \alias{E_BlaneyCriddle}
 \title{Lake evaporation (Blaney-Criddle method)}
 \usage{
-E_BlaneyCriddle(Ta, D, Da, a = 0.0173, b = 0.314)
+E_BlaneyCriddle(Ta, D, Da, a = 0.0173, b = 0.314, conv = 25.4)
 }
 \arguments{
 \item{Ta}{Air temperature, \eqn{T_{a}} (\eqn{C}).}
@@ -18,6 +18,9 @@ Assumed 0.0173.}
 
 \item{b}{Also an emperical coefficient modifying the influence of air
 temperature. Assumed 0.314}
+
+\item{conv}{A multiplier that converts base units to mm/day. It is assumed to
+be 25.4, but will need to be adjust for alternative units.}
 }
 \description{
 \code{E_BlaneyCriddle} returns the daily rate of evaporation, \eqn{E}

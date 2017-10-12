@@ -26,15 +26,17 @@
 #'   Assumed 0.0173.
 #' @param b Also an emperical coefficient modifying the influence of air
 #'   temperature. Assumed 0.314
+#' @param conv A multiplier that converts base units to mm/day. It is assumed to
+#'   be 25.4, but will need to be adjust for alternative units.
 #'
 #' @export
 #'
 #' @examples
 #'
-E_BlaneyCriddle <- function(Ta, D, Da, a = 0.0173, b = 0.314){
+E_BlaneyCriddle <- function(Ta, D, Da, a = 0.0173, b = 0.314, conv = 25.4){
   Ta.F <- (Ta * 9 / 5) + 32
   pt1 <- (a * Ta.F)
   pt2 <- pt1 - b
-  E <- pt2 * Ta.F * (D / Da) * 25.4
+  E <- pt2 * Ta.F * (D / Da) * conv
   E
 }

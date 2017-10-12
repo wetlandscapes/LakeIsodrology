@@ -4,7 +4,7 @@
 \alias{E_MassTransfer}
 \title{Lake evaporation (Mass Transfer method)}
 \usage{
-E_MassTransfer(U, els, ea, N)
+E_MassTransfer(U, els, ea, N, conv = 10)
 }
 \arguments{
 \item{U}{Windspeed 2 m above the lake surface, \eqn{U} (\eqn{m s^{-1}}).}
@@ -15,6 +15,9 @@ E_MassTransfer(U, els, ea, N)
 \item{ea}{Atmospheric vapor pressure, \eqn{e_{a}} (\eqn{kPa}).}
 
 \item{N}{Empirical parameter, no standard value.}
+
+\item{conv}{A multiplier that converts base units to mm/day. It is assumed to
+be 10, but will need to be adjust for alternative units.}
 }
 \description{
 \code{E_MassTransfer} estimates a daily rate of evaporation, \eqn{E}

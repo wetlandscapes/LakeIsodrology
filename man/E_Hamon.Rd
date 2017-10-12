@@ -4,7 +4,7 @@
 \alias{E_Hamon}
 \title{Lake evaporation (Hamon method)}
 \usage{
-E_Hamon(D, ps, a = 0.55)
+E_Hamon(D, ps, a = 0.55, conv = 25.4)
 }
 \arguments{
 \item{D}{Hours of daylight, \eqn{D} (\eqn{hrs}).}
@@ -12,6 +12,9 @@ E_Hamon(D, ps, a = 0.55)
 \item{ps}{saturation vapor density, \eqn{\rho_{s}} (\eqn{g m^{-3}}).}
 
 \item{a}{An empirical coefficient, assumed to be 0.55.}
+
+\item{conv}{A multiplier that converts base units to mm/day. It is assumed to
+be 25.4, but will need to be adjust for alternative units.}
 }
 \description{
 \code{E_Hamon} provides an estimate of daily evaporation, \eqn{E} (\eqn{mm

@@ -5,7 +5,7 @@
 \title{Lake evaporation (Thornethwaite method)}
 \usage{
 E_Thornthwaite(Ta, I, day, a = 1.6, b = 6.75e-07, c = 7.71e-05,
-  d = 0.0179, e = 0.49)
+  d = 0.0179, e = 0.49, conv = 10)
 }
 \arguments{
 \item{Ta}{Air temperature, \eqn{T_{a}} (\eqn{C}).}
@@ -23,6 +23,9 @@ E_Thornthwaite(Ta, I, day, a = 1.6, b = 6.75e-07, c = 7.71e-05,
 \item{d}{An emperical coefficient, assumed to be 1.79e-2.}
 
 \item{e}{An emperical coefficient, assumed to be 0.49.}
+
+\item{conv}{A multiplier that converts base units to mm/day. It is assumed to
+be 10, but will need to be adjust for alternative units.}
 }
 \description{
 \code{E_Thornthwaite} returns the daily evaporation, \eqn{E} (\eqn{mm

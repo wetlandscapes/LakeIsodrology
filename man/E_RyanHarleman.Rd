@@ -4,8 +4,8 @@
 \alias{E_RyanHarleman}
 \title{Lake evaporation (Ryan-Harleman method)}
 \usage{
-E_RyanHarleman(Ta, Tls, U, els, ea, L = 2.47, rho = 998, a = 2.7,
-  b = 1/3, c = 3.1)
+E_RyanHarleman(Ta, Tls, U, els, ea, lambda = 2.47, rho = 998, a = 2.7,
+  b = 1/3, c = 3.1, conv = 86.4)
 }
 \arguments{
 \item{Ta}{Air temperature, \eqn{T_{a}} (\eqn{C}).}
@@ -19,7 +19,7 @@ E_RyanHarleman(Ta, Tls, U, els, ea, L = 2.47, rho = 998, a = 2.7,
 
 \item{ea}{Atmospheric vapor pressure, \eqn{e_{a}} (\eqn{kPa}).}
 
-\item{L}{Latent heat of vaporization, \eqn{\lambda_{v}} (\eqn{MJ kg^{-1}}).
+\item{lambda}{Latent heat of vaporization, \eqn{\lambda_{v}} (\eqn{MJ kg^{-1}}).
 Assumed to be 2.47.}
 
 \item{rho}{Density of water, \eqn{rho} (\eqn{kg m^{-3}}). Assumed to be 998
@@ -33,6 +33,9 @@ Assumed to be 1/3.}
 
 \item{c}{An emperical coefficent modifying the influence of wind. Assumed to
 be 3.1.}
+
+\item{conv}{A multiplier that converts base units to mm/day. It is assumed to
+be 86.4, but will need to be adjust for alternative units.}
 }
 \description{
 \code{E_RyanHarleman} returns the daily rate of evaporation, \eqn{E}
