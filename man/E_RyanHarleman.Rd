@@ -62,6 +62,7 @@ cooling pond behavior. Vol. 161. Dept. of Civil Engineering, Massachusetts
 Institute of Technology.
 }
 \examples{
+Ta = 20; Tls = 17; RH = 0.8; U = 4.5
 #Calculate the saturation vapor pressure for a given temperature.
 es <- sat_vap(Ta)
 #Determine the slope of the saturation vapor-pressure curve.
@@ -69,6 +70,8 @@ del <- slp_sat_vap(Ta, es)
 #Use these data, in addition to the surface temperature of the lake, to determine
 # the vapor pressure at the lake's surface.
 els <- sat_vap_surf(es, del, Tls, Ta)
+#Atmospheric vapor pressure
+ea <- atm_vap(RH, es)
 #Apply values to the Ryan-Harleman evaporation function:
 E_RyanHarleman(Ta, Tls, U, els, ea)
 
