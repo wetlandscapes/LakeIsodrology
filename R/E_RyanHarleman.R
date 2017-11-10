@@ -23,7 +23,7 @@
 #'Institute of Technology.
 #'
 #'@param Ta Air temperature, \eqn{T_{a}} (\eqn{C}).
-#'@param Tls Lake surface temperature, \eqn{T_{ls}} (\eqn{C})
+#'@param Tls Lake surface temperature, \eqn{T_{ls}} (\eqn{C}).
 #'@param U Wind speed at 2 m from the lake surface, \eqn{U} (\eqn{m/s}).
 #'@param els Saturated vapor pressure at the lake surface, \eqn{e_{ls}}
 #'  (\eqn{kPa}).

@@ -3,7 +3,7 @@
 #' Estimates the temperature-dependent equilibrium fracitonation factor (aka,
 #' isotope effect), \eqn{\alpha_{V/L}}, of common water isotopes (i.e.,
 #' 2-hydrogen and 18-oxygen) between the liquid and vapor phases. Units of the
-#' output \eqn{\alpha} value are in decimal notation [-].
+#' output \eqn{\alpha} value are in \eqn{\text{\textperthousand}}.
 #'
 #' Fractionation s determined via (Majoube 1971):
 #'
@@ -39,5 +39,5 @@ equil_frac <- function(Ta, element){
   }
   frac_factor <- frac_factor/1000
   frac_factor <- exp(frac_factor)
-  frac_factor
+  frac_factor <- (frac_factor - 1) * 1000
 }
