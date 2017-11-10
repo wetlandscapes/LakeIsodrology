@@ -39,6 +39,5 @@ equil_frac <- function(Ta, element){
   }
   frac_factor <- frac_factor/1000
   frac_factor <- exp(frac_factor)
-  frac_factor <- (frac_factor - 1) * 1000
   frac_factor
 }

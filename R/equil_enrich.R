@@ -20,7 +20,6 @@
 #' @examples
 #'
 equil_enrich <- function(alpha_VL){
-  alpha_unity <- (alpha_VL / 1e3) + 1
-  e_VL <- (1 - alpha_unity) * 1e3
+  e_VL <- (1 - alpha_VL) * 1e3
   e_VL
 }
