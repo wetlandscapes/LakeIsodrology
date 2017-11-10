@@ -10,8 +10,8 @@
 #'
 #' Dingman SL. 2008. Physical hydrology. Waveland Press.
 #'
-#' @param W Relative humidity, \eqn{W} [\eqn{-}]
-#' @param es Saturation vapor pressure, \eqn{e_{s}} (\eqn{kPa}).
+#' @param W Relative humidity, \eqn{W} (\eqn{%}).
+#' @param es Saturation vapor pressure, \eqn{e_s} (\eqn{kPa}).
 #'
 #' @export
 #'

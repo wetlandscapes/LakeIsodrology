@@ -15,7 +15,7 @@ equil_frac(Ta, element)
 Estimates the temperature-dependent equilibrium fracitonation factor (aka,
 isotope effect), \eqn{\alpha_{V/L}}, of common water isotopes (i.e.,
 2-hydrogen and 18-oxygen) between the liquid and vapor phases. Units of the
-output \eqn{\alpha} value are in decimal notation [-].
+output \eqn{\alpha} value are in \eqn{\text{\textperthousand}}.
 }
 \details{
 Fractionation s determined via (Majoube 1971):

@@ -10,7 +10,7 @@ E_RyanHarleman(Ta, Tls, U, els, ea, lambda = 2.47, rho = 998, a = 2.7,
 \arguments{
 \item{Ta}{Air temperature, \eqn{T_{a}} (\eqn{C}).}
 
-\item{Tls}{Lake surface temperature, \eqn{T_{ls}} (\eqn{C})}
+\item{Tls}{Lake surface temperature, \eqn{T_{ls}} (\eqn{C}).}
 
 \item{U}{Wind speed at 2 m from the lake surface, \eqn{U} (\eqn{m/s}).}
 

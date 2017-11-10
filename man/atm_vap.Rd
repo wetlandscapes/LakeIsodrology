@@ -7,9 +7,7 @@
 atm_vap(W, es)
 }
 \arguments{
-\item{W}{Relative humidity, \eqn{W} [\eqn{-}]}
-
-\item{es}{Saturation vapor pressure, \eqn{e_{s}} (\eqn{kPa}).}
+\item{es}{Saturation vapor pressure, \eqn{e_s} (\eqn{kPa}).}
 }
 \description{
 \code{atm_vap} returns the ambient atmospheric vapor pressure, \eqn{e_{a}}
