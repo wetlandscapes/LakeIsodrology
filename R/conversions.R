@@ -107,9 +107,7 @@ ratio_to_delta <- function(ratio, element, standard = "VSMOW", unit) {
   if(!is.numeric(ratio)){
     stop("Isotope ratio must be a numeric value.")
   }
-  if(ratio < 0) {
-    warning("The isotope ratio is negative.")
-  }
+  ratio < 0 || warning("The isotope ratio is negative.")
   if(element != "Hydrogen" && element != "Oxygen") {
     stop("Element must a character value indicating either 'Hydrogen' or 'Oxygen'.")
   }
