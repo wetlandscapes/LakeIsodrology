@@ -19,7 +19,7 @@ fraction_to_ratio <- function(fracAbund) {
   if(!is.numeric(fracAbund)) {
     stop("This function requires numeric values to work.")
   }
-  if(fracAbund > 1 | fracAbund <= 0) {
+  if(fracAbund > 1 || fracAbund <= 0) {
     warning("The fractional abundance value(s) is either higher or lower than expected.")
   }
   out <- fracAbund / (1 - fracAbund)
@@ -52,7 +52,7 @@ ratio_to_fraction <- function(ratio) {
   if(!is.numeric(ratio)) {
     stop("This function requires numeric values to work.")
   }
-  if(ratio > 1 | ratio <= 0) {
+  if(ratio > 1 || ratio <= 0) {
     warning("The ratio value(s) is either higher or lower than expected.")
   }
   out <- ratio * (1 + ratio)
@@ -110,13 +110,13 @@ ratio_to_delta <- function(ratio, element, standard = "VSMOW", unit) {
   if(ratio < 0) {
     warning("The isotope ratio is negative.")
   }
-  if(element != "Hydrogen" & element != "Oxygen") {
+  if(element != "Hydrogen" && element != "Oxygen") {
     stop("Element must a character value indicating either 'Hydrogen' or 'Oxygen'.")
   }
-  if(standard != "VSMOW" & standard != "GISP" & standard != "SLAP" ) {
+  if(standard != "VSMOW" && standard != "GISP" && standard != "SLAP" ) {
     stop("Can only evaluate one of the three common water standards: VSMOW, GISP, or SLAP.")
   }
-  if(unit != "permille" & unit != "decimal") {
+  if(unit != "permille" && unit != "decimal") {
     stop("Expecting unit values to be either 'permille' or 'decimal'.")
   }
   if(element == "Hydrogen") {
@@ -196,13 +196,13 @@ delta_to_ratio <- function(delta, element, standard = "VSMOW", unit) {
   if(!is.numeric(delta)){
     stop("Isotope ratio must be a numeric value.")
   }
-  if(element != "Hydrogen" & element != "Oxygen") {
+  if(element != "Hydrogen" && element != "Oxygen") {
     stop("Element must a character value indicating either 'Hydrogen' or 'Oxygen'.")
   }
-  if(standard != "VSMOW" & standard != "GISP" & standard != "SLAP" ) {
+  if(standard != "VSMOW" && standard != "GISP" & standard != "SLAP" ) {
     stop("Can only evaluate one of the three common water standards: VSMOW, GISP, or SLAP.")
   }
-  if(unit != "permille" & unit != "decimal") {
+  if(unit != "permille" && unit != "decimal") {
     stop("Expecting unit values to be either 'permille' or 'decimal'.")
   }
   if(element == "Hydrogen") {

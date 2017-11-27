@@ -30,7 +30,7 @@ equil_frac <- function(Ta, element){
   if(!is.numeric(Ta)) {
     stop('Expecting a numeric temperature value')
   }
-  if(Ta > 100 & Ta < 0) {
+  if(Ta > 100 && Ta < 0) {
     warning('Temperature values are outside the bounds of the method - may generate anamolous data.')
   }
   temp_K <- Ta + 273.15

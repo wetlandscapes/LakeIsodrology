@@ -47,7 +47,7 @@ CraigGordon <- function(dL, dA, aELV, eEVL, eK, hn){
   if(eK > 0) {
     warning('"eK" seems high.')
   }
-  if(hN > 1 | hN < 0) {
+  if(hN > 1 || hN < 0) {
     warning('hN is outside the expected bounds or 0 and 1.')
   }
   top <- (dL / aELV) - (hn * dA) + eEVL + eK
