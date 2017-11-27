@@ -2,39 +2,42 @@
 % Please edit documentation in R/CraigGordon.R
 \name{CraigGordon}
 \alias{CraigGordon}
-\title{Craig-Gordon model}
+\title{Craig-Gordon model to estimate evaporation isotope values}
 \usage{
-CraigGordon(alpha_VL, Del_L, hn, Del_A, frac_VL, frac_diff)
+CraigGordon(dL, dA, aELV, eEVL, eK, hn)
 }
 \arguments{
-\item{alpha_VL}{Equilibrium fractionation factor between vapor and liquid
-phases, \eqn{\alpha_{V/L}} [\eqn{-}].}
+\item{dL}{Delta value of a liquid (e.g., lake), \eqn{\delta_{L}}
+[\eqn{-}].}
 
-\item{Del_L}{Delta value for lake water, \eqn{\delta_{L}}
-(\eqn{\text{\textperthousand}}).}
+\item{dA}{Delta value for the "free" atmosphere \eqn{\delta_{A}},
+[\eqn{-}].}
+
+\item{eEVL}{Vapor-liquid equilibrium fractionation factor,
+\eqn{\epsilon^*_{VL}} [\eqn{-}].}
 
 \item{hn}{Relative humidity normalized to saturation vapor pressure at the
 lake-atmosphere interface, \eqn{h_{N}} [\eqn{-}].}
 
-\item{Del_A}{Delta value for the "free" atmosphere \eqn{\delta_{A}},
-(\eqn{\text{\textperthousand}}).}
-
-\item{frac_VL}{Vapor-liquid equilibrium fractionation factor,
-\eqn{\epsilon_{V/L}} (\eqn{\text{\textperthousand}}).}
+\item{aeLV}{Equilibrium fractionation factor between liquid and vapor
+phases, \eqn{\alpha^*_{LV}} [\eqn{-}].}
 
 \item{frac_diff}{Kinetic equilibrium fractionation factor,
-\eqn{\epsilon_{diff}}, (\eqn{\text{\textperthousand}}).}
+\eqn{\epsilon^\kappa}, [\eqn{-}].}
+}
+\value{
+Numeric value
 }
 \description{
 Implements the Craig-Gordon isotope evaporation model for an individual
-isotope of water (H or O). Units of the output delta value, \eqn{\delta_{E}},
-are provided in \eqn{\text{\textperthousand}}.
+isotope of water, hydrogen or oxygen. Units of the output delta value, \eqn{\delta_{E}},
+are provided in decimal form.
 }
 \details{
-The Craig-Gordon model as defined by Gat et al. (2001):
+The Craig-Gordon model (similar to that defined by Gat et al. (2001)):
 
-\deqn{\delta_{E} = \frac{\alpha_{V/L}\delta_{L} - h_{N}\delta_{A} +
-\epsilon_{V/L} + \epsilon_{diff}}{(1 - h_{N}) - \epsilon_{diff}}}
+\deqn{\delta_{E} = \frac{(\delta_{L}/\alpha^*_{LV}) - h_{N}\delta_{A} +
+\epsilon^*_{VL} + \epsilon^{\kappa}}{(1 - h_{N}) - \epsilon^{\kappa}}}
 
 Gat, JR, WG Mook, AJ Meijer. 2001. Environmental isotopes in the hydrological
 cycle, principles and applications. Volume II: Atmospheric water. IHP-V,

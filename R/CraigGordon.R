@@ -1,38 +1,57 @@
-#' Craig-Gordon model
+#' Craig-Gordon model to estimate evaporation isotope values
 #'
 #' Implements the Craig-Gordon isotope evaporation model for an individual
-#' isotope of water (H or O). Units of the output delta value, \eqn{\delta_{E}},
-#' are provided in \eqn{\text{\textperthousand}}.
+#' isotope of water, hydrogen or oxygen. Units of the output delta value, \eqn{\delta_{E}},
+#' are provided in decimal form.
 #'
-#' The Craig-Gordon model as defined by Gat et al. (2001):
+#' The Craig-Gordon model (similar to that defined by Gat et al. (2001)):
 #'
-#' \deqn{\delta_{E} = \frac{\alpha_{V/L}\delta_{L} - h_{N}\delta_{A} +
-#' \epsilon_{V/L} + \epsilon_{diff}}{(1 - h_{N}) - \epsilon_{diff}}}
+#' \deqn{\delta_{E} = \frac{(\delta_{L}/\alpha^*_{LV}) - h_{N}\delta_{A} +
+#' \epsilon^*_{VL} + \epsilon^{\kappa}}{(1 - h_{N}) - \epsilon^{\kappa}}}
 #'
 #' Gat, JR, WG Mook, AJ Meijer. 2001. Environmental isotopes in the hydrological
 #' cycle, principles and applications. Volume II: Atmospheric water. IHP-V,
 #' Technical Document 2 (39): 1–113.
 #'
-#' @param alpha_VL Equilibrium fractionation factor between vapor and liquid
-#'   phases, \eqn{\alpha_{V/L}} [\eqn{-}].
-#' @param Del_L Delta value for lake water, \eqn{\delta_{L}}
-#'   (\eqn{\text{\textperthousand}}).
+#' @param dL Delta value of a liquid (e.g., lake), \eqn{\delta_{L}}
+#'   [\eqn{-}].
+#' @param dA Delta value for the "free" atmosphere \eqn{\delta_{A}},
+#'   [\eqn{-}].
+#' @param aeLV Equilibrium fractionation factor between liquid and vapor
+#'   phases, \eqn{\alpha^*_{LV}} [\eqn{-}].
+#' @param eEVL Vapor-liquid equilibrium fractionation factor,
+#'   \eqn{\epsilon^*_{VL}} [\eqn{-}].
+#' @param frac_diff Kinetic equilibrium fractionation factor,
+#'   \eqn{\epsilon^\kappa}, [\eqn{-}].
 #' @param hn Relative humidity normalized to saturation vapor pressure at the
 #'   lake-atmosphere interface, \eqn{h_{N}} [\eqn{-}].
-#' @param Del_A Delta value for the "free" atmosphere \eqn{\delta_{A}},
-#'   (\eqn{\text{\textperthousand}}).
-#' @param frac_VL Vapor-liquid equilibrium fractionation factor,
-#'   \eqn{\epsilon_{V/L}} (\eqn{\text{\textperthousand}}).
-#' @param frac_diff Kinetic equilibrium fractionation factor,
-#'   \eqn{\epsilon_{diff}}, (\eqn{\text{\textperthousand}}).
 #'
+#' @return Numeric value
 #' @export
 #'
 #' @examples
 #'
-CraigGordon <- function(alpha_VL, Del_L, hn, Del_A, frac_VL, frac_diff){
-  eq.top <- (alpha_VL * Del_L) - (hn * Del_A) - (frac_VL + frac_diff)
-  eq.bottom <- (1 - hn) + frac_diff
-  out <- eq.top / eq.bottom
+CraigGordon <- function(dL, dA, aELV, eEVL, eK, hn){
+  if(!is.numeric(dL, dA, aELV, eEVL, eK, hn)) {
+    stop('Expecting all input variables to be numeric.')
+  }
+  if(aELV < 1) {
+    warning('"aELV" may be too low.')
+  }
+  if(aELV > 1) {
+    warning('"aELV" may be too high.')
+  }
+  if(eEVL > 0) {
+    warning('"eEVL" seems high.')
+  }
+  if(eK > 0) {
+    warning('"eK" seems high.')
+  }
+  if(hN > 1 | hN < 0) {
+    warning('hN is outside the expected bounds or 0 and 1.')
+  }
+  top <- (dL / aELV) - (hn * dA) + eEVL + eK
+  bot <- 1 - hn - eK
+  out <- top / bot
   out
 }
