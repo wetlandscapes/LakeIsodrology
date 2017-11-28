@@ -55,7 +55,7 @@ ratio_to_fraction <- function(ratio) {
   if(ratio > 1 || ratio <= 0) {
     warning("The ratio value(s) is either higher or lower than expected.")
   }
-  out <- ratio * (1 + ratio)
+  out <- ratio / (1 + ratio)
   return(out)
 }
 
@@ -107,7 +107,7 @@ ratio_to_delta <- function(ratio, element, standard = "VSMOW", unit) {
   if(!is.numeric(ratio)){
     stop("Isotope ratio must be a numeric value.")
   }
-  ratio < 0 || warning("The isotope ratio is negative.")
+  #ratio < 0 || warning("The isotope ratio is negative.")
   if(element != "Hydrogen" && element != "Oxygen") {
     stop("Element must a character value indicating either 'Hydrogen' or 'Oxygen'.")
   }
@@ -214,7 +214,8 @@ delta_to_ratio <- function(delta, element, standard = "VSMOW", unit) {
       #Hydrogen - SLAP
       Rs <- 89.02 * 1e-6
     }
-  } else {
+  }
+  if(element == "Oxygen") {
     if(standard == "VSMOW") {
       #Oxygen - VSMOW
       Rs <- 2005.20 * 1e-6
